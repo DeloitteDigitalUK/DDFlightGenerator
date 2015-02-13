@@ -1,0 +1,39 @@
+{
+  "name": "generator-flight-cjs",
+  "version": "0.0.0",
+  "description": "Yeoman Flight CJS generator",
+  "license": "MIT",
+  "main": "lib/generators/app/index.js",
+  "files": [
+    "lib"
+  ],
+  "author": {
+    "name": "DeloitteDigitalUK",
+    "email": "",
+    "url": "https://github.com/DeloitteDigitalUK"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.4.0"
+  },
+  "scripts": {
+    "test": "mocha --no-colors --reporter spec"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "flight",
+    "framework"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.18.0",
+    "chalk": "^0.5.0",
+    "yosay": "^0.3.0",
+    "underscore.string": "~3.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

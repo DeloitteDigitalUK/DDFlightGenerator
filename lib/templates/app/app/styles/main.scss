@@ -1,0 +1,2 @@
+<% if (bootstrapREM) { %> @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap"; <% } %>
+<% if (bootstrap) { %> @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap"; <% } %>
