@@ -36,7 +36,7 @@
     "grunt-karma": "~0.10.1",
     "grunt-sass": "~0.17.0",
     "jasmine": "~2.2.0",
-    "jasmine-flight": "git://github.com/mo-lon/jasmine-flight.git#4f8d9a6fa57c83e862e5232dd8803d3864f57c2f",
+    "jasmine-flight": "git://github.com/mo-lon/jasmine-flight.git#579cce7fcc2477ff6c47495c66780d5f5c014d29",
     "jasmine-jquery": "~2.0.6",
     "jshint-stylish": "~1.0.0",
     "karma": "~0.12.31",
