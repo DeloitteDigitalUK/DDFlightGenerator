@@ -210,6 +210,11 @@ describe('flight component', function() {
 });
 ```
 
+And the fixture file `test/spec/fixtures/SKINCHANGER.html`:
+```html
+<div data-component="skinChanger"></div>
+```
+
 ### flight:mixin
 
 Generates a mixin component in `app/scripts/mixins`.
