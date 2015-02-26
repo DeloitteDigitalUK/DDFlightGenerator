@@ -25,6 +25,14 @@ Next, globally install the Flight generator. This will automatically install
 These tools will help manage your dependencies and generate the boilerplate
 Flight application.
 
+Local Installation:
+```
+clone project 
+npm install
+npm link
+```
+
+Global Installation (To Do)
 ```
 npm install -g generator-flight-cjs
 ```
@@ -63,7 +71,7 @@ Available generators (to be run in the root directory of a project).
 
 Scaffolds a Flight CJS application file structure, installs all the library code
 you need, and correctly configures your test setup. The app generator will
-prompt you to optionally install Bootstrap or Normalize.css.
+prompt you to optionally install DDBootrstrap (Boostrap+SASS+REM) or Boostrap-Sass.
 
 Example:
 
@@ -78,13 +86,14 @@ Produces:
 ├── app
 │   ├── styles
 │   │   └── main.scss
-│   ├── img
-│   ├── scripts
-│   │   ├── components
-│   │   ├── mixins
-│   │   ├── plugins
-│   │   ├── app.js
-│   │   └── main.js
+│   ├── images
+│   ├── fonts
+│   └── scripts
+│       ├── components
+│       ├── mixins
+│       ├── plugins
+│       ├── app.js
+│       └── main.js
 ├── dist
 │   ├── scripts
 │   │   ├── main.js
@@ -171,15 +180,16 @@ And the test file `test/spec/skinChanger.spec.js`:
 
 ```js
 describe('flight component', function() {
-	'use strict';
+    'use strict';
 	
-	jasmine.getFixtures().fixturesPath = '/base/test/spec/fixtures/';
+    jasmine.getFixtures().fixturesPath = '/base/test/spec/fixtures/';
     jasmine.getJSONFixtures().fixturesPath = '/base/test/spec/fixtures/';
-    var fixture = null; //readFixtures('NAME-OF-FIXTURE.html');    
+    var fixture = readFixtures('SKINCHANGER.html');    
     var jasmineFlight = require('../../node_modules/jasmine-flight/lib/jasmine-flight.js');
     
     beforeEach(function() {
     	var registry = require('flightjs/lib/registry');
+    	var component = require('flightjs/lib/flight');
     	this.Component = this.component = this.$node = null;
     	this.Component = require('../../app/scripts/components/skinChanger');
     	registry.reset();
@@ -200,6 +210,11 @@ describe('flight component', function() {
 });
 ```
 
+And the fixture file `test/spec/fixtures/SKINCHANGER.html`:
+```html
+<div data-component="skinChanger"></div>
+```
+
 ### flight:mixin
 
 Generates a mixin component in `app/scripts/mixins`.
@@ -214,8 +229,8 @@ Produces `app/scripts/mixins/withBorder.js`:
 
 ```js
 function withBorder() {
-	'use strict';
-	/*jshint validthis:true */
+    'use strict';
+    /*jshint validthis:true */
 
     this.attributes({
     });
@@ -228,21 +243,22 @@ And the test file `test/spec/withBorder.spec.js`:
 
 ```js
 describe('flight component', function() {
-	'use strict';
+    'use strict';
     var jasmineFlight = require('../../node_modules/jasmine-flight/lib/jasmine-flight.js');
     
     beforeEach(function() {
     	var registry = require('flightjs/lib/registry');
+    	var component = require('flightjs/lib/component'):
     	this.Component = this.component = this.$node = null;
-    	this.Component = require('../../app/scripts/mixins/withBorder');
+    	this.Component = component(function() {}, require('../../app/scripts/mixins/withBorder'));
     	registry.reset();
-        this.component = jasmineFlight.setupMixin(this, null);
+        this.component = jasmineFlight.setupMixin(this);
     	jasmine.addMatchers(jasmineFlight.matchers);
     });
 
     afterEach(function () {
     	this.Component = require('../../app/scripts/mixins/withBorder');
-    	jasmineFlight.destroyComponent(this);
+    	jasmineFlight.destroyMixin(this);
     	jasmineFlight.events.cleanUp();
     });
 
