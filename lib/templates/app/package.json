@@ -35,7 +35,7 @@
     "grunt-contrib-jshint": "~0.11.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-karma": "~0.10.1",
-    "grunt-sass": "~0.17.0",
+    "grunt-sass": "~1.1.0",
     "jasmine": "~2.2.0",
     "jasmine-flight": "git://github.com/mo-lon/jasmine-flight.git#579cce7fcc2477ff6c47495c66780d5f5c014d29",
     "jasmine-jquery": "~2.0.6",
